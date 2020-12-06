@@ -15,6 +15,4 @@ Navigate to http://localhost:8080/?file=my/wanted/file
 
 ## Using the Docker image
 
-docker build -t filereader .
-
-docker run --rm -e FILEREADER_CHROOT=/app -v $PWD:/app -p8080:8080 filereader:latest
+docker run --rm -e FILEREADER_CHROOT=/app -v $PWD:/app -p8080:8080 sylwit/http_filereader:latest
