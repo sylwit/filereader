@@ -1,5 +1,9 @@
+# syntax=docker/dockerfile:1
+
 FROM scratch
 
-COPY build/filereader-linux-amd64 /filereader
+ARG TARGETARCH
+
+COPY build/filereader-linux-${TARGETARCH} /filereader
 
 CMD ["/filereader"]

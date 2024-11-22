@@ -25,3 +25,6 @@ build-windows:
 	CGO_ENABLED=0 GOOS=windows GOARCH=${BUILD_ARCH} $(GOBUILD) -o build/$(BINARY_WINDOWS) -v
 
 release: build-linux build-mac build-windows
+
+docker-build:
+	docker buildx build --platform linux/amd64,linux/arm64 -t sylwit/http_filereader:1.1.0 -t sylwit/http_filereader:latest --push .

@@ -13,6 +13,9 @@ FILEREADER_CHROOT=/my_data make run
 
 Navigate to http://localhost:8080/?file=my/wanted/file
 
+If you want to print all the env variables, use the /env endpoint
+Navigate to http://localhost:8080/env
+
 ## Using the Docker image
 
 docker run --rm -e FILEREADER_CHROOT=/app -v $PWD:/app -p8080:8080 sylwit/http_filereader:latest

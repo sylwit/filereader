@@ -62,5 +62,20 @@ func main() {
 		}
 	})
 
+	http.HandleFunc("/env", func(w http.ResponseWriter, r *http.Request) {
+        	w.Header().Set("Content-Type", "text/html")
+
+        	fmt.Fprintf(w, "<html><body>")
+        	fmt.Fprintf(w, "<h1>Environment Variables</h1>")
+        	fmt.Fprintf(w, "<ul>")
+
+        	for _, env := range os.Environ() {
+                fmt.Fprintf(w, "<li>%s</li>", env)
+        	}
+
+        	fmt.Fprintf(w, "</ul>")
+        	fmt.Fprintf(w, "</body></html>")
+    })
+
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
